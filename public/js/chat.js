@@ -25,6 +25,7 @@ socket.on('connect',function(){
       alert(error);
       window.location.href = '/';
     } else{
+      document.title = `${params.room} | ChatApp`;
       console.log('No error');
     }
   });
@@ -100,7 +101,6 @@ jQuery('#message-form').on('submit',function(e){
   var messageTextbox = jQuery('[name=message]');
 
   socket.emit('createMessage',{
-    from:'User',
     text:jQuery('[name=message]').val()
   },function(){
     messageTextbox.val('');

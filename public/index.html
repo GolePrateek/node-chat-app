@@ -15,15 +15,23 @@
         </div>
         <div class="form-field">
           <label>Display name</label>
-          <input type="text" name="name" autofocus required/>
+          <input type="text" name="name" autofocus required autocomplete="off"/>
         </div>
         <div class="form-field">
           <label>Room name</label>
-          <input type="text" name="room" required/></div>
+          <input type="text" id="room-name" name="room" list="roomList" required autocomplete="off"/>
+          <datalist id="roomList">
+            <!-- <option value="Work">
+            <option value="Friends"> -->
+          </datalist>
+        </div>
         <div class="form-field">
           <button>Join</button>
         </div>
     </form>
     </div>
+
+    <script src="/js/libs/jquery.js"></script>
+    <script src="/js/index.js"></script>
   </body>
 </html>

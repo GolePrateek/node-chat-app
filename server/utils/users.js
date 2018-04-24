@@ -26,6 +26,11 @@ class Users {
     var namesArray = users.map(user => user.name);
     return namesArray;
   }
+
+  isNameTaken(name,room){
+    var user = this.users.filter(user => (name===user.name && room===user.room))[0];
+    return user?true:false;
+  }
 }
 
 module.exports= {Users};

@@ -1,5 +1,10 @@
 var socket = io();
 
+var messageCounter = 0;
+var favicon=new Favico({
+    animation:'popFade'
+});
+
 function scrollToBottom(){
   //selectors
   var messages = jQuery('#messages');
@@ -62,6 +67,7 @@ socket.on('newMessage',function(message){
 
  jQuery('#messages').append(html);
  scrollToBottom();
+ displayMessageCountInTab();
 //  document.getElementById(id).scrollIntoView();
   // var li = jQuery('<li></li>');
   // li.text(`${message.from} ${timestamp}: ${message.text}`);
@@ -82,6 +88,7 @@ socket.on('newLocationMessage',function(message){
 
   jQuery('#messages').append(html);
   scrollToBottom();
+  displayMessageCountInTab();
   // var li = jQuery('<li></li>');
   // var a = jQuery('<a target="_blank">My current location</a>');
   //
@@ -131,4 +138,21 @@ locationButton.on('click',function(e){
   },function(){
     alert('Unable to fetch location.')
   })
+});
+
+function displayMessageCountInTab(){
+  if(!document.hasFocus()){
+    favicon.badge(++messageCounter);
+  }
+};
+
+function clearMessageCount(){
+  messageCounter=0;
+  favicon.badge(messageCounter);
+};
+
+$(window).focus(function(e){
+  if(messageCounter>0){
+    clearMessageCount();
+  }
 });

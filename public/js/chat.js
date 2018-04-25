@@ -136,7 +136,8 @@ locationButton.on('click',function(e){
       longitude: position.coords.longitude
     });
   },function(){
-    alert('Unable to fetch location.')
+    locationButton.attr('disabled',false).text('Send location');
+    alert('Unable to fetch location.');
   })
 });
 

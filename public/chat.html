@@ -5,17 +5,25 @@
     <title>Chat | ChatApp</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link id="favicon" rel="shortcut icon" type="image/png" href="/images/chat.png">
   </head>
 
   <body class="chat">
 
-    <div class="chat__sidebar">
+    <div class="chat__sidebar" id="js__sidebar">
       <h3>People</h3>
       <div id="users"></div>
     </div>
 
+    <div class="mobile__header">
+      <a class="js__toggle_button" href="#" id="js__nav_open"><i class="material-icons">&#xE5D2;</i></a>
+      <a class="js__toggle_button" href="#" id="js__nav_close"><i class="material-icons">&#xE5CD;</i></a>
+      <h3 id="js__group_title">Group Title</h3>
+    </div>
+
     <div class="chat__main">
+
       <ol id="messages" class="chat__messages"></ol>
 
       <div class="chat__footer">
@@ -52,6 +60,16 @@
           </p>
         </div>
       </li>
+    </script>
+
+    <script>
+      function openNav() {
+          document.getElementById("js__sidebar").style.width = "500px";
+      }
+
+      function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+      }
     </script>
 
     <script src="/socket.io/socket.io.js"></script>

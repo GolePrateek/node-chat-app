@@ -35,6 +35,7 @@ socket.on('connect',function(){
       window.location.href = '/';
     } else{
       document.title = `${capitalizeFirstLetter(params.room)} | ChatApp`;
+      $('#js__group_title').html(capitalizeFirstLetter(params.room));
       console.log('No error');
     }
   });
@@ -156,4 +157,19 @@ $(window).focus(function(e){
   if(messageCounter>0){
     clearMessageCount();
   }
+});
+
+var navOpenButton = jQuery('#js__nav_open');
+var navCloseButton = jQuery('#js__nav_close');
+$('.js__toggle_button').on('click',function(e){
+  let sidebar = $('#js__sidebar');
+  if(sidebar.is(":visible")){
+    navOpenButton.show();
+    navCloseButton.hide();
+  }
+  else {
+    navOpenButton.hide();
+    navCloseButton.show();
+  }
+  sidebar.slideToggle(300);
 });

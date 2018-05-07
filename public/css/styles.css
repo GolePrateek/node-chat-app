@@ -85,10 +85,8 @@ button:disabled {
 }
 
 .chat__sidebar {
-  /*overflow-y: scroll;*/
-  flex:30%;
+  flex:25%;
   order: 2;
-  /* width: 260px; */
   height: 100vh;
   background: -moz-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%); /* ff3.6+ */
   background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgba(49,84,129,1)), color-stop(100%, rgba(39,107,130,1))); /* safari4+,chrome */
@@ -228,12 +226,4 @@ button:disabled {
   .chat__footer button {
     margin-right: 0px;
   }
-}
-
-@media (min-width: 601px) {
-
-  .chat__sidebar {
-    display: 'block';
-  }
-
 }

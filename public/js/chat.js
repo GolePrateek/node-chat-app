@@ -161,8 +161,21 @@ $(window).focus(function(e){
 
 var navOpenButton = jQuery('#js__nav_open');
 var navCloseButton = jQuery('#js__nav_close');
+var sidebar = $('#js__sidebar');
+
 $('.js__toggle_button').on('click',function(e){
-  let sidebar = $('#js__sidebar');
+  manageMobileNav();
+  sidebar.slideToggle(300);
+});
+
+$(window).resize(function(){
+    if(window.innerWidth>600){
+        sidebar.css("display","");
+        manageMobileNav();
+    }
+});
+
+function manageMobileNav(){
   if(sidebar.is(":visible")){
     navOpenButton.show();
     navCloseButton.hide();
@@ -171,5 +184,4 @@ $('.js__toggle_button').on('click',function(e){
     navOpenButton.hide();
     navCloseButton.show();
   }
-  sidebar.slideToggle(300);
-});
+}
